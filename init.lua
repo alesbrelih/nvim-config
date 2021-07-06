@@ -21,8 +21,6 @@ require('keymappings')
 -- Plugins
 require('plugins')
 
-require('lsp_lua')
-
 require('config')
 
 -- LSP

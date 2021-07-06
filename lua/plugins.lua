@@ -16,10 +16,12 @@ return require('packer').startup(function()
   
     -- LSP and completion
     use { 'neovim/nvim-lspconfig' }
-    use { 'nvim-lua/completion-nvim' }
-  
+    use { 'hrsh7th/nvim-compe' }
+
     use {'nvim-treesitter/nvim-treesitter'}
     use {'sheerun/vim-polyglot'}
+
+    use { 'sbdchd/neoformat' }
 
     -- Lua development
     use { 'tjdevries/nlua.nvim' }
@@ -30,11 +32,36 @@ return require('packer').startup(function()
     -- Fugitive for Git
     use { 'tpope/vim-fugitive' }
 
-    -- Snippets
-    use { 'honza/vim-snippets' }
+    use { 'hrsh7th/vim-vsnip' }
+    use { 'xabikos/vscode-javascript' }
+    use { 'golang/vscode-go' }
 
     use { 'mfussenegger/nvim-dap' }
     use { 'nvim-telescope/telescope-dap.nvim' }
 
     use {'prettier/vim-prettier', run = 'yarn install' }
+
+    use { "folke/lua-dev.nvim" }
+
+    use { "ray-x/lsp_signature.nvim" }
+
+    -- Database
+    use { 'tpope/vim-dadbod' }
+    use { 'kristijanhusak/vim-dadbod-ui' }
+    use { 'kristijanhusak/vim-dadbod-completion' }
+
+    use { 'glepnir/lspsaga.nvim' }
+    use { 'onsails/lspkind-nvim' }
+    use { 'RRethy/vim-illuminate' }
+    use {
+        "folke/which-key.nvim",
+         config = function() require("which-key").setup {} end
+    }
+    use {
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function() require("trouble").setup {} end
+    }
+    use { 'p00f/nvim-ts-rainbow' }
+
   end)
