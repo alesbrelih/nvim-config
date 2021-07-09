@@ -13,7 +13,8 @@ return require('packer').startup(function()
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
     }
-  
+    use { 'nvim-telescope/telescope-media-files.nvim' }
+
     -- LSP and completion
     use { 'neovim/nvim-lspconfig' }
     use { 'hrsh7th/nvim-compe' }
@@ -53,6 +54,7 @@ return require('packer').startup(function()
     use { 'glepnir/lspsaga.nvim' }
     use { 'onsails/lspkind-nvim' }
     use { 'RRethy/vim-illuminate' }
+
     use {
         "folke/which-key.nvim",
          config = function() require("which-key").setup {} end
@@ -63,5 +65,26 @@ return require('packer').startup(function()
         config = function() require("trouble").setup {} end
     }
     use { 'p00f/nvim-ts-rainbow' }
+    use { 'tami5/sql.nvim' }
+    use {
+        "nvim-telescope/telescope-frecency.nvim",
+        config = function()
+            require"telescope".load_extension("frecency")
+        end
+    }
+    use {
+        'lewis6991/gitsigns.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim'
+        },
+        config = function()
+            require('gitsigns').setup()
+        end
+    }
+    use { 'b3nj5m1n/kommentary' }
+
+    use { 'fatih/vim-go' }
+
+    use { 'preservim/nerdtree' }
 
   end)

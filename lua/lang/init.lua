@@ -93,10 +93,20 @@ capabilities.textDocument.codeAction = {
 capabilities.textDocument.completion.completionItem.snippetSupport = true;
 
 -- LSPs
-local servers = {"gopls", "tsserver"}
+local servers = {"tsserver"}
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {capabilities = capabilities, on_attach = on_attach}
 end
+
+nvim_lsp.gopls.setup{
+    capabilities = capabilities,
+    on_attach = on_attach,
+    settings = { 
+        gopls =  {
+            buildFlags =  {"-tags=mock"}
+        }
+    }
+}
 
 -- Lua LSP
 local sumneko_root_path = ""

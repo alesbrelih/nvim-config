@@ -1,4 +1,6 @@
 require('telescope').load_extension('dap')
+require('telescope').load_extension('media_files')
+
 require('dbg.go')
 
 local utils = require('utils')
