@@ -101,7 +101,7 @@ end
 nvim_lsp.gopls.setup{
     capabilities = capabilities,
     on_attach = on_attach,
-    settings = { 
+    settings = {
         gopls =  {
             buildFlags =  {"-tags=mock"}
         }
@@ -115,7 +115,7 @@ local sumneko_binary = ""
 if vim.fn.has("mac") == 1 then
     sumneko_root_path = "/Users/" .. USER .. "/.config/nvim/lua-language-server"
     sumneko_binary = "/Users/" .. USER ..
-                         "/.config/nvim/lua-language-server/bin/macOS/lua-language-server"
+                         "/.config/nvim/lua-language-server/bin/OSX/lua-language-server"
 elseif vim.fn.has("unix") == 1 then
     sumneko_root_path = "/home/" .. USER .. "/.config/nvim/lua-language-server"
     sumneko_binary = "/home/" .. USER ..
@@ -160,7 +160,7 @@ nvim_lsp.sumneko_lua.setup(luadev)
 vim.g.symbols_outline = {
     highlight_hovered_item = true,
     show_guides = true,
-    auto_preview = false, -- experimental
+    auto_preview = true, -- experimental
     position = 'right',
     keymaps = {
         close = "<Esc>",
@@ -176,7 +176,7 @@ vim.g.symbols_outline = {
 -- LSP Enable diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
     vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = false,
+        virtual_text = true,
         underline = true,
         signs = true,
         update_in_insert = false
@@ -203,3 +203,4 @@ do
         vim.lsp.util.set_qflist(qflist)
     end
 end
+
