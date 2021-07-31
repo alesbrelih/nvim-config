@@ -83,7 +83,7 @@ return require('packer').startup(function()
 
     use {
         'windwp/nvim-autopairs',
-        config = function() require('nvim-autopairs').setup() {} end
+        config = function() require('nvim-autopairs').setup {} end
     }
 
     use {
@@ -98,7 +98,7 @@ return require('packer').startup(function()
         'phaazon/hop.nvim',
         as = 'hop',
         config = function()
-            require'hop'.setup {}
+            require'hop'.setup {keys = 'etovxqpdygfblzhckisuran', term_seq_bias = 0.5}
         end
     }
 
