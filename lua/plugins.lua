@@ -4,7 +4,6 @@ return require('packer').startup(function()
     use {'wbthomason/packer.nvim', opt = true}
   
     -- Color scheme
-    -- use { 'sainnhe/gruvbox-material' }
     use 'tjdevries/colorbuddy.nvim'
     use 'bkegley/gloombuddy'
 
@@ -30,8 +29,6 @@ return require('packer').startup(function()
     -- Vim dispatch
     use { 'tpope/vim-dispatch' }
   
-    -- Fugitive for Git
-    use { 'tpope/vim-fugitive' }
 
     use { 'hrsh7th/vim-vsnip' }
     use { 'xabikos/vscode-javascript' }
@@ -39,8 +36,6 @@ return require('packer').startup(function()
 
     use { 'mfussenegger/nvim-dap' }
     use { 'nvim-telescope/telescope-dap.nvim' }
-
-    use {'prettier/vim-prettier', run = 'yarn install' }
 
     use { "folke/lua-dev.nvim" }
 
@@ -66,12 +61,7 @@ return require('packer').startup(function()
     }
     use { 'p00f/nvim-ts-rainbow' }
     use { 'tami5/sql.nvim' }
-    use {
-        "nvim-telescope/telescope-frecency.nvim",
-        config = function()
-            require"telescope".load_extension("frecency")
-        end
-    }
+
     use {
         'lewis6991/gitsigns.nvim',
         requires = {
@@ -102,4 +92,15 @@ return require('packer').startup(function()
 
     use {"akinsho/nvim-toggleterm.lua"}
 
+    use { 'f-person/git-blame.nvim' }
+
+    use {
+        'phaazon/hop.nvim',
+        as = 'hop',
+        config = function()
+            require'hop'.setup {}
+        end
+    }
+
+    use { 'ryanoasis/vim-devicons' } 
   end)
