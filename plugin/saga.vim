@@ -14,5 +14,3 @@ nnoremap <silent><leader>cpd:Lspsaga preview_definition<CR>
 nnoremap <silent> <leader>cld :Lspsaga show_line_diagnostics<CR>
 nnoremap <silent> [e :Lspsaga diagnostic_jump_next<CR>
 nnoremap <silent> ]e :Lspsaga diagnostic_jump_prev<CR>
-nnoremap <silent> <leader>cot :Lspsaga open_floaterm<CR>
-tnoremap <silent> <leader>cct <C-\><C-n>:Lspsaga close_floaterm<CR>

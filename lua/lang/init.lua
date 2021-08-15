@@ -90,7 +90,14 @@ capabilities.textDocument.codeAction = {
     }
 }
 
-capabilities.textDocument.completion.completionItem.snippetSupport = true;
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    'documentation',
+    'detail',
+    'additionalTextEdits',
+  }
+}
 
 -- LSPs
 local servers = {"tsserver"}
@@ -103,11 +110,17 @@ nvim_lsp.gopls.setup{
     on_attach = on_attach,
     settings = {
         gopls =  {
-            buildFlags =  {"-tags=mock"}
+            buildFlags =  {"-tags=mock"},
+            usePlaceholders = true,
+            analyses = {
+                nilness = true,
+                shadow = true,
+                unusedparams = true,
+                unusedwrite = true,
+            }
         }
     }
 }
-
 -- Lua LSP
 local sumneko_root_path = ""
 local sumneko_binary = ""
@@ -123,6 +136,7 @@ elseif vim.fn.has("unix") == 1 then
 else
     print("Unsupported system for sumneko")
 end
+
 
 -- lua-dev.nvim
 local luadev = require("lua-dev").setup({

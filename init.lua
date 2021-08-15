@@ -13,6 +13,7 @@ vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile' -- Auto compile when th
 vim.g.mapleader = ' '
 
 -- Sensible defaults
+
 require('settings')
 
 -- Key mappings
@@ -23,5 +24,8 @@ require('plugins')
 
 require('config')
 
+require('debugger')
+
 -- LSP
 require('lang')
+

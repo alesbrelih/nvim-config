@@ -25,3 +25,7 @@ inoremap <C-k> <esc>:m .-2<CR>==
 inoremap <C-j> <esc>:m .+1<CR>==
 nnoremap <leader>j :m .+1<CR>==
 nnoremap <leader>k :m .-2<CR>==
+
+" when indenting keep selection
+vnoremap < <gv
+vnoremap > >gv
