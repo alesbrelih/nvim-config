@@ -8,7 +8,6 @@ require('telescope').load_extension('media_files')
 require('debugger.go')
 require("dapui").setup({})
 
-
 local utils = require('utils')
 
 utils.map('n', '<leader>dc', '<cmd>lua require"dap".continue()<CR>')

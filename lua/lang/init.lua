@@ -6,7 +6,6 @@ USER = vim.fn.expand('$USER')
 local on_attach = function(client, bufnr)
 
     require'lsp_signature'.on_attach(client)
-    require'illuminate'.on_attach(client)
 
     local function buf_set_keymap(...)
         vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -110,8 +109,21 @@ nvim_lsp.gopls.setup{
     on_attach = on_attach,
     settings = {
         gopls =  {
+            experimentalPostfixCompletions = true,
+            codelenses = {
+                generate = true,
+                gc_details = true,
+                test = true,
+                tidy = true
+            },
+            experimentalDiagnosticsDelay = "500ms",
             buildFlags =  {"-tags=mock"},
             usePlaceholders = true,
+            completeUnimported = true,
+            staticcheck = true,
+            matcher = "fuzzy",
+            symbolMatcher = "fuzzy",
+            gofumpt = true,
             analyses = {
                 nilness = true,
                 shadow = true,

@@ -5,12 +5,17 @@
   
     -- Color scheme
     use 'tjdevries/colorbuddy.nvim'
-    use 'bkegley/gloombuddy'
+    -- use 'bkegley/gloombuddy'
+    use 'shaunsingh/nord.nvim'
+    use 'sainnhe/gruvbox-material'
 
     -- Fuzzy finder
     use {
         'nvim-telescope/telescope.nvim',
-        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
+        config = function()
+            require('telescope').setup({ defaults = { file_ignore_patterns = {"mock%_.*%.go", "go/vendor"} } })
+        end
     }
     use { 'nvim-telescope/telescope-media-files.nvim' }
 
@@ -21,7 +26,7 @@
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {'nvim-treesitter/nvim-treesitter-textobjects'}
 
-    use {'sheerun/vim-polyglot'}
+    -- use {'sheerun/vim-polyglot'}
 
     use { 'sbdchd/neoformat' }
 
@@ -58,7 +63,7 @@
 
     use { 'glepnir/lspsaga.nvim' }
     use { 'onsails/lspkind-nvim' }
-    use { 'RRethy/vim-illuminate' }
+    use { 'yamatsum/nvim-cursorline' }
 
     use {
         "folke/which-key.nvim",
@@ -106,4 +111,8 @@
     use { 'ryanoasis/vim-devicons' } 
 
     use { 'hrsh7th/vim-vsnip' }
+
+    use { 'tpope/vim-surround' }
+    use {'mattn/emmet-vim'}
+
   end)
