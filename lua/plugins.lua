@@ -115,4 +115,6 @@
     use { 'tpope/vim-surround' }
     use {'mattn/emmet-vim'}
 
+    use {'RishabhRD/popfix'}
+    use {'RishabhRD/nvim-cheat.sh'}
   end)
