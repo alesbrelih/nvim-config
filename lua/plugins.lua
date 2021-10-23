@@ -79,8 +79,6 @@
 
     use { 'b3nj5m1n/kommentary' }
 
-    use { 'fatih/vim-go' }
-
     use { 'preservim/nerdtree' }
 
     use { 'vim-airline/vim-airline' }
@@ -117,4 +115,6 @@
 
     use {'RishabhRD/popfix'}
     use {'RishabhRD/nvim-cheat.sh'}
+
+    use{'ray-x/go.nvim'}
   end)

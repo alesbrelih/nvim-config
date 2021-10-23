@@ -28,3 +28,5 @@ require('debugger')
 
 -- LSP
 require('lang')
+
+require('go').setup()
