@@ -29,4 +29,4 @@ require('debugger')
 -- LSP
 require('lang')
 
-require('go').setup()
+require('go').setup({build_tags="mock"})

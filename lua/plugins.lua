@@ -5,8 +5,6 @@
   
     -- Color scheme
     use 'tjdevries/colorbuddy.nvim'
-    -- use 'bkegley/gloombuddy'
-    use 'shaunsingh/nord.nvim'
     use 'sainnhe/gruvbox-material'
 
     -- Fuzzy finder
@@ -17,11 +15,20 @@
             require('telescope').setup({ defaults = { file_ignore_patterns = {"mock%_.*%.go", "go/vendor"} } })
         end
     }
+
+    -- Harpoon
+    use {
+        'ThePrimeagen/harpoon',
+        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
+        config = function()
+            require('telescope').setup({ defaults = { file_ignore_patterns = {"mock%_.*%.go", "go/vendor"} } })
+        end
+    }
+
     use { 'nvim-telescope/telescope-media-files.nvim' }
 
     -- LSP and completion
     use { 'neovim/nvim-lspconfig' }
-    use { 'hrsh7th/nvim-compe' }
 
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {'nvim-treesitter/nvim-treesitter-textobjects'}
@@ -37,20 +44,20 @@
     use { 'tpope/vim-dispatch' }
   
 
-    use { 'xabikos/vscode-javascript' }
+    -- use { 'xabikos/vscode-javascript' }
 
     use { 'mfussenegger/nvim-dap' }
     use { 'nvim-telescope/telescope-dap.nvim' }
     use {'theHamsta/nvim-dap-virtual-text'}
+    use {'rcarriga/nvim-dap-ui'}
+    use {'Pocco81/DAPInstall.nvim'}
     
-    use {
+    --[[ use {
         "rcarriga/vim-ultest",
         config = "require('config.ultest').post()",
         run = ":UpdateRemotePlugins",
         requires = {"vim-test/vim-test"}
-}
-    use {'rcarriga/nvim-dap-ui'}
-    use {'Pocco81/DAPInstall.nvim'}
+} ]]
 
     use { "folke/lua-dev.nvim" }
 
@@ -61,7 +68,7 @@
     use { 'kristijanhusak/vim-dadbod-ui' }
     use { 'kristijanhusak/vim-dadbod-completion' }
 
-    use { 'glepnir/lspsaga.nvim' }
+    -- use { 'glepnir/lspsaga.nvim' }
     use { 'onsails/lspkind-nvim' }
     use { 'yamatsum/nvim-cursorline' }
 
@@ -79,15 +86,12 @@
 
     use { 'b3nj5m1n/kommentary' }
 
-    use { 'preservim/nerdtree' }
-
     use { 'vim-airline/vim-airline' }
 
     use { 'vim-airline/vim-airline-themes' }
 
     use {
-        'windwp/nvim-autopairs',
-        config = function() require('nvim-autopairs').setup {} end
+        'windwp/nvim-autopairs'
     }
 
     use {
@@ -107,14 +111,23 @@
     }
 
     use { 'ryanoasis/vim-devicons' } 
-
+    use { 'hrsh7th/cmp-nvim-lsp' }
+    use { 'hrsh7th/cmp-buffer' }
+    use { 'hrsh7th/nvim-cmp' }
+    use { 'hrsh7th/cmp-path' }
     use { 'hrsh7th/vim-vsnip' }
+    use { 'hrsh7th/cmp-vsnip' }
 
     use { 'tpope/vim-surround' }
-    use {'mattn/emmet-vim'}
 
     use {'RishabhRD/popfix'}
     use {'RishabhRD/nvim-cheat.sh'}
 
     use{'ray-x/go.nvim'}
+    use { 'kevinhwang91/rnvimr'}
+
+    use {'tversteeg/registers.nvim'}
+    
+    use {'preservim/nerdtree'}
+
   end)

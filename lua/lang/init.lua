@@ -1,5 +1,29 @@
 USER = vim.fn.expand('$USER')
 
+Handlers = {}
+
+Handlers.implementation = function()
+  local params = vim.lsp.util.make_position_params()
+
+  vim.lsp.buf_request(0, "textDocument/implementation", params, function(err, result, ctx, config)
+    local bufnr = ctx.bufnr
+    local ft = vim.api.nvim_buf_get_option(bufnr, "filetype")
+
+    if ft == "go" then
+      local new_result = vim.tbl_filter(function(v)
+        return not string.find(v.uri, "mock_")
+      end, result)
+
+      if #new_result > 0 then
+        result = new_result
+      end
+    end
+
+    vim.lsp.handlers["textDocument/implementation"](err, result, ctx, config)
+    vim.cmd [[normal! zz]]
+  end)
+end
+
 -- Language specific key mappings
 -- require('lang.keymappings')
 
@@ -21,7 +45,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
     buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+    buf_set_keymap('n', 'gi', '<Cmd>lua Handlers.implementation()<CR>', opts)
     buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>',
                    opts)
     buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>',
@@ -88,6 +112,8 @@ capabilities.textDocument.codeAction = {
         }
     }
 }
+  local params = vim.lsp.util.make_position_params()
+
 
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.completion.completionItem.resolveSupport = {
@@ -97,6 +123,8 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
     'additionalTextEdits',
   }
 }
+-- Setup lspconfig.
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- LSPs
 local servers = {"tsserver"}

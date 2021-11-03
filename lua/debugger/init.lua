@@ -2,7 +2,7 @@
 vim.g.dap_virtual_text = true
 
 
-require('telescope').load_extension('dap')
+--[[ require('telescope').load_extension('dap')
 require('telescope').load_extension('media_files')
 
 require('debugger.go')
@@ -27,4 +27,4 @@ utils.map('n', '<leader>dlb', '<cmd>lua require"telescope".extensions.dap.list_b
 utils.map('n', '<leader>dv', '<cmd>lua require"telescope".extensions.dap.variables{}<CR>')
 utils.map('n', '<leader>df', '<cmd>lua require"telescope".extensions.dap.frames{}<CR>')
 utils.map('n', '<leader>dui', '<cmd>lua require"dapui".toggle()<CR>')
-
+ ]]
