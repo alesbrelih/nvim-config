@@ -12,20 +12,32 @@
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
         config = function()
-            require('telescope').setup({ defaults = { file_ignore_patterns = {"mock%_.*%.go", "go/vendor"} } })
+            require('telescope').setup({ 
+                defaults = { file_ignore_patterns = {"mock%_.*%.go", "go/vendor"} },
+                extensions = {
+    fzf = {
+      fuzzy = true,                    -- false will only do exact matching
+      override_generic_sorter = true,  -- override the generic sorter
+      override_file_sorter = true,     -- override the file sorter
+      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+                                       -- the default case_mode is "smart_case"
+    }
+  }
+            })
         end
     }
+    require('telescope').load_extension('fzf')
+
 
     -- Harpoon
     use {
         'ThePrimeagen/harpoon',
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
-        config = function()
-            require('telescope').setup({ defaults = { file_ignore_patterns = {"mock%_.*%.go", "go/vendor"} } })
-        end
     }
 
     use { 'nvim-telescope/telescope-media-files.nvim' }
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+
 
     -- LSP and completion
     use { 'neovim/nvim-lspconfig' }
@@ -103,11 +115,12 @@
     use { 'f-person/git-blame.nvim' }
 
     use {
-        'phaazon/hop.nvim',
-        as = 'hop',
-        config = function()
-            require'hop'.setup {keys = 'etovxqpdygfblzhckisuran', term_seq_bias = 0.5}
-        end
+    'phaazon/hop.nvim',
+    branch = 'v1', -- optional but strongly recommended
+    config = function()
+        -- you can configure Hop the way you like here; see :h hop-config
+        require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+    end
     }
 
     use { 'ryanoasis/vim-devicons' } 
@@ -117,6 +130,7 @@
     use { 'hrsh7th/cmp-path' }
     use { 'hrsh7th/vim-vsnip' }
     use { 'hrsh7th/cmp-vsnip' }
+    use { 'hrsh7th/cmp-nvim-lua' }
 
     use { 'tpope/vim-surround' }
 
@@ -130,4 +144,27 @@
     
     use {'preservim/nerdtree'}
 
+    use {'gaborvecsei/memento.nvim'}
+
+    -- For Packer
+    use 'EdenEast/nightfox.nvim'
+
+    -- Lua
+    use {
+        "ahmedkhalf/project.nvim",
+        config = function()
+            require("project_nvim").setup {
+                manual_mode = true,
+                -- Methods of detecting the root directory. **"lsp"** uses the native neovim
+                -- lsp, while **"pattern"** uses vim-rooter like glob pattern matching. Here
+                -- order matters: if one is not detected, the other is used as fallback. You
+                -- can also delete or rearangne the detection methods.
+                detection_methods = { "pattern" },
+
+                -- All the patterns used to detect root dir, when **"pattern"** is in
+                -- detection_methods
+                patterns = { "go/mod", ".git" },
+            }
+        end
+    }
   end)

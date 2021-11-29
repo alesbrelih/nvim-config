@@ -162,7 +162,9 @@ nvim_lsp.gopls.setup{
                 unusedwrite = true,
             }
         }
-    }
+    },
+    filetypes = { "go", "gomod" },
+    root_dir = nvim_lsp.util.root_pattern("go.mod")
 }
 -- Lua LSP
 local sumneko_root_path = ""

@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/Users/ales/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["cmp-nvim-lua"] = {
+    loaded = true,
+    path = "/Users/ales/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
+    url = "https://github.com/hrsh7th/cmp-nvim-lua"
+  },
   ["cmp-path"] = {
     loaded = true,
     path = "/Users/ales/.local/share/nvim/site/pack/packer/start/cmp-path",
@@ -115,15 +120,14 @@ _G.packer_plugins = {
     url = "https://github.com/sainnhe/gruvbox-material"
   },
   harpoon = {
-    config = { "\27LJ\2\nŠ\1\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\1K\0\1\0\rdefaults\1\0\0\25file_ignore_patterns\1\0\0\1\3\0\0\17mock%_.*%.go\14go/vendor\nsetup\14telescope\frequire\0" },
     loaded = true,
     path = "/Users/ales/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/ThePrimeagen/harpoon"
   },
-  hop = {
-    config = { "\27LJ\2\nj\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\2\tkeys\28etovxqpdygfblzhckisuran\18term_seq_bias\4\0€€€ÿ\3\nsetup\bhop\frequire\0" },
+  ["hop.nvim"] = {
+    config = { "\27LJ\2\nU\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\tkeys\28etovxqpdygfblzhckisuran\nsetup\bhop\frequire\0" },
     loaded = true,
-    path = "/Users/ales/.local/share/nvim/site/pack/packer/start/hop",
+    path = "/Users/ales/.local/share/nvim/site/pack/packer/start/hop.nvim",
     url = "https://github.com/phaazon/hop.nvim"
   },
   kommentary = {
@@ -146,6 +150,11 @@ _G.packer_plugins = {
     path = "/Users/ales/.local/share/nvim/site/pack/packer/start/lua-dev.nvim",
     url = "https://github.com/folke/lua-dev.nvim"
   },
+  ["memento.nvim"] = {
+    loaded = true,
+    path = "/Users/ales/.local/share/nvim/site/pack/packer/start/memento.nvim",
+    url = "https://github.com/gaborvecsei/memento.nvim"
+  },
   neoformat = {
     loaded = true,
     path = "/Users/ales/.local/share/nvim/site/pack/packer/start/neoformat",
@@ -155,6 +164,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ales/.local/share/nvim/site/pack/packer/start/nerdtree",
     url = "https://github.com/preservim/nerdtree"
+  },
+  ["nightfox.nvim"] = {
+    loaded = true,
+    path = "/Users/ales/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
+    url = "https://github.com/EdenEast/nightfox.nvim"
   },
   ["nlua.nvim"] = {
     loaded = true,
@@ -247,6 +261,12 @@ _G.packer_plugins = {
     path = "/Users/ales/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
+  ["project.nvim"] = {
+    config = { "\27LJ\2\n•\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\rpatterns\1\3\0\0\vgo/mod\t.git\22detection_methods\1\2\0\0\fpattern\1\0\1\16manual_mode\2\nsetup\17project_nvim\frequire\0" },
+    loaded = true,
+    path = "/Users/ales/.local/share/nvim/site/pack/packer/start/project.nvim",
+    url = "https://github.com/ahmedkhalf/project.nvim"
+  },
   ["registers.nvim"] = {
     loaded = true,
     path = "/Users/ales/.local/share/nvim/site/pack/packer/start/registers.nvim",
@@ -267,13 +287,18 @@ _G.packer_plugins = {
     path = "/Users/ales/.local/share/nvim/site/pack/packer/start/telescope-dap.nvim",
     url = "https://github.com/nvim-telescope/telescope-dap.nvim"
   },
+  ["telescope-fzf-native.nvim"] = {
+    loaded = true,
+    path = "/Users/ales/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
+    url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
+  },
   ["telescope-media-files.nvim"] = {
     loaded = true,
     path = "/Users/ales/.local/share/nvim/site/pack/packer/start/telescope-media-files.nvim",
     url = "https://github.com/nvim-telescope/telescope-media-files.nvim"
   },
   ["telescope.nvim"] = {
-    config = { "\27LJ\2\nŠ\1\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\1K\0\1\0\rdefaults\1\0\0\25file_ignore_patterns\1\0\0\1\3\0\0\17mock%_.*%.go\14go/vendor\nsetup\14telescope\frequire\0" },
+    config = { "\27LJ\2\nú\1\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\0025\3\t\0005\4\b\0=\4\n\3=\3\v\2B\0\2\1K\0\1\0\15extensions\bfzf\1\0\0\1\0\4\nfuzzy\2\14case_mode\15smart_case\25override_file_sorter\2\28override_generic_sorter\2\rdefaults\1\0\0\25file_ignore_patterns\1\0\0\1\3\0\0\17mock%_.*%.go\14go/vendor\nsetup\14telescope\frequire\0" },
     loaded = true,
     path = "/Users/ales/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
@@ -338,26 +363,26 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
-try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
-time([[Config for which-key.nvim]], false)
+-- Config for: project.nvim
+time([[Config for project.nvim]], true)
+try_loadstring("\27LJ\2\n•\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\rpatterns\1\3\0\0\vgo/mod\t.git\22detection_methods\1\2\0\0\fpattern\1\0\1\16manual_mode\2\nsetup\17project_nvim\frequire\0", "config", "project.nvim")
+time([[Config for project.nvim]], false)
 -- Config for: trouble.nvim
 time([[Config for trouble.nvim]], true)
 try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
 time([[Config for trouble.nvim]], false)
--- Config for: harpoon
-time([[Config for harpoon]], true)
-try_loadstring("\27LJ\2\nŠ\1\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\1K\0\1\0\rdefaults\1\0\0\25file_ignore_patterns\1\0\0\1\3\0\0\17mock%_.*%.go\14go/vendor\nsetup\14telescope\frequire\0", "config", "harpoon")
-time([[Config for harpoon]], false)
--- Config for: hop
-time([[Config for hop]], true)
-try_loadstring("\27LJ\2\nj\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\2\tkeys\28etovxqpdygfblzhckisuran\18term_seq_bias\4\0€€€ÿ\3\nsetup\bhop\frequire\0", "config", "hop")
-time([[Config for hop]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
-try_loadstring("\27LJ\2\nŠ\1\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\1K\0\1\0\rdefaults\1\0\0\25file_ignore_patterns\1\0\0\1\3\0\0\17mock%_.*%.go\14go/vendor\nsetup\14telescope\frequire\0", "config", "telescope.nvim")
+try_loadstring("\27LJ\2\nú\1\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\0025\3\t\0005\4\b\0=\4\n\3=\3\v\2B\0\2\1K\0\1\0\15extensions\bfzf\1\0\0\1\0\4\nfuzzy\2\14case_mode\15smart_case\25override_file_sorter\2\28override_generic_sorter\2\rdefaults\1\0\0\25file_ignore_patterns\1\0\0\1\3\0\0\17mock%_.*%.go\14go/vendor\nsetup\14telescope\frequire\0", "config", "telescope.nvim")
 time([[Config for telescope.nvim]], false)
+-- Config for: hop.nvim
+time([[Config for hop.nvim]], true)
+try_loadstring("\27LJ\2\nU\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\tkeys\28etovxqpdygfblzhckisuran\nsetup\bhop\frequire\0", "config", "hop.nvim")
+time([[Config for hop.nvim]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
+time([[Config for which-key.nvim]], false)
 if should_profile then save_profiles() end
 
 end)

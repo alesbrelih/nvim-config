@@ -32,3 +32,5 @@ utils.map("n", "<leader>c3", "<cmd>lua require('harpoon.ui').nav_file(3)<CR>")
 utils.map("n", "<leader>c4", "<cmd>lua require('harpoon.ui').nav_file(4)<CR>")
 utils.map("n", "<leader>ca", "<cmd>lua require('harpoon.mark').add_file()<CR>")
 
+-- memento
+utils.map("n", "<leader>mm", "<cmd>lua require('memento').toggle()<CR>")

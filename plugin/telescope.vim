@@ -13,3 +13,4 @@ nnoremap <leader>fx <cmd>Telescope lsp_document_diagnostics<cr>
 nnoremap <leader>fr <cmd>Telescope lsp_references<cr>
 nnoremap <leader>fi <cmd>Telescope lsp_implementations<cr>
 nnoremap <leader>fd <cmd>Telescope lsp_definitions<cr>
+nnoremap <leader>fp <cmd>Telescope projects<cr>

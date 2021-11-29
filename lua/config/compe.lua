@@ -1,5 +1,5 @@
--- Setup nvim-cmp.
 local cmp = require('cmp')
+-- Setup nvim-cmp.
 local lspkind = require('lspkind')
 
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
@@ -49,6 +49,7 @@ cmp.setup({
     },
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
+        { name = 'nvim_lua'},
         { name = 'vsnip' },
         { name = 'path' },
         { name = 'buffer' },
