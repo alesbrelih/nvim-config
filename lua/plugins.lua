@@ -4,7 +4,6 @@
     use {'wbthomason/packer.nvim', opt = true}
   
     -- Color scheme
-    use 'tjdevries/colorbuddy.nvim'
     use 'sainnhe/gruvbox-material'
 
     -- Fuzzy finder
@@ -44,6 +43,8 @@
 
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {'nvim-treesitter/nvim-treesitter-textobjects'}
+    use {'nvim-treesitter/playground'}
+
 
     -- use {'sheerun/vim-polyglot'}
 
@@ -70,6 +71,7 @@
         run = ":UpdateRemotePlugins",
         requires = {"vim-test/vim-test"}
 } ]]
+    use { "simrat39/symbols-outline.nvim" }
 
     use { "folke/lua-dev.nvim" }
 
@@ -84,10 +86,10 @@
     use { 'onsails/lspkind-nvim' }
     use { 'yamatsum/nvim-cursorline' }
 
-    use {
-        "folke/which-key.nvim",
-         config = function() require("which-key").setup {} end
-    }
+    -- use {
+    --     "folke/which-key.nvim",
+    --      config = function() require("which-key").setup {} end
+    -- }
     use {
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
@@ -95,8 +97,6 @@
     }
 
     use { 'p00f/nvim-ts-rainbow' }
-
-    use { 'b3nj5m1n/kommentary' }
 
     use { 'vim-airline/vim-airline' }
 
@@ -106,11 +106,8 @@
         'windwp/nvim-autopairs'
     }
 
-    use {
-        'simrat39/symbols-outline.nvim'
-    }
+    use {"akinsho/toggleterm.nvim"}
 
-    use {"akinsho/nvim-toggleterm.lua"}
 
     use { 'f-person/git-blame.nvim' }
 
@@ -137,6 +134,7 @@
     use {'RishabhRD/popfix'}
     use {'RishabhRD/nvim-cheat.sh'}
 
+    use {'ray-x/guihua.lua',run = 'cd lua/fzy && make' }
     use{'ray-x/go.nvim'}
     use { 'kevinhwang91/rnvimr'}
 
@@ -146,25 +144,11 @@
 
     use {'gaborvecsei/memento.nvim'}
 
-    -- For Packer
-    use 'EdenEast/nightfox.nvim'
 
-    -- Lua
     use {
-        "ahmedkhalf/project.nvim",
-        config = function()
-            require("project_nvim").setup {
-                manual_mode = true,
-                -- Methods of detecting the root directory. **"lsp"** uses the native neovim
-                -- lsp, while **"pattern"** uses vim-rooter like glob pattern matching. Here
-                -- order matters: if one is not detected, the other is used as fallback. You
-                -- can also delete or rearangne the detection methods.
-                detection_methods = { "pattern" },
-
-                -- All the patterns used to detect root dir, when **"pattern"** is in
-                -- detection_methods
-                patterns = { "go/mod", ".git" },
-            }
-        end
-    }
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+}
   end)

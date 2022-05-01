@@ -1,7 +1,7 @@
 -- nvim-dap-virtual-text. Show virtual text for current frame
 vim.g.dap_virtual_text = true
 
-require('telescope').load_extension('projects')
+-- require('telescope').load_extension('projects')
 
 --[[ require('telescope').load_extension('dap')
 require('telescope').load_extension('media_files')

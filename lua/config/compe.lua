@@ -66,6 +66,7 @@ cmp.setup({
                 nvim_lsp = "[lsp]",
                 path = "[path]",
                 vsnip = "[snip]",
+                ['vim-dadbod-completion'] = "[DB]"
             },
         },
     },

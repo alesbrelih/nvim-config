@@ -127,10 +127,18 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- LSPs
-local servers = {"tsserver"}
+local servers = {"tsserver", "angularls"}
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {capabilities = capabilities, on_attach = on_attach}
 end
+
+-- nvim_lsp.ansiblels.setup{
+--     on_attach = on_attach,
+--     root_dir = nvim_lsp.util.root_pattern("ansible.cfg"),
+--     filetypes = { "yaml", "yml" }
+-- }
+
+
 
 nvim_lsp.gopls.setup{
     capabilities = capabilities,
@@ -147,8 +155,8 @@ nvim_lsp.gopls.setup{
                 test = true,
                 tidy = true
             },
-            experimentalDiagnosticsDelay = "500ms",
-            buildFlags =  {"-tags=mock"},
+            diagnosticsDelay = "500ms",
+            buildFlags =  {"-tags=mock,integration_tests"},
             usePlaceholders = true,
             completeUnimported = true,
             staticcheck = true,
@@ -173,7 +181,7 @@ local sumneko_binary = ""
 if vim.fn.has("mac") == 1 then
     sumneko_root_path = "/Users/" .. USER .. "/.config/nvim/lua-language-server"
     sumneko_binary = "/Users/" .. USER ..
-                         "/.config/nvim/lua-language-server/bin/OSX/lua-language-server"
+                         "/.config/nvim/lua-language-server/bin/lua-language-server"
 elseif vim.fn.has("unix") == 1 then
     sumneko_root_path = "/home/" .. USER .. "/.config/nvim/lua-language-server"
     sumneko_binary = "/home/" .. USER ..
@@ -233,33 +241,33 @@ vim.g.symbols_outline = {
 }
 
 -- LSP Enable diagnostics
-vim.lsp.handlers["textDocument/publishDiagnostics"] =
-    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = true,
-        underline = true,
-        signs = true,
-        update_in_insert = false
-    })
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] =
+--     vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+--         virtual_text = true,
+--         underline = true,
+--         signs = true,
+--         update_in_insert = false
+--     })
 
 -- Send diagnostics to quickfix list
-do
-    local method = "textDocument/publishDiagnostics"
-    local default_handler = vim.lsp.handlers[method]
-    vim.lsp.handlers[method] = function(err, method, result, client_id, bufnr,
-                                        config)
-        default_handler(err, method, result, client_id, bufnr, config)
-        local diagnostics = vim.lsp.diagnostic.get_all()
-        local qflist = {}
-        for bufnr, diagnostic in pairs(diagnostics) do
-            for _, d in ipairs(diagnostic) do
-                d.bufnr = bufnr
-                d.lnum = d.range.start.line + 1
-                d.col = d.range.start.character + 1
-                d.text = d.message
-                table.insert(qflist, d)
-            end
-        end
-        vim.lsp.util.set_qflist(qflist)
-    end
-end
+-- do
+--     local method = "textDocument/publishDiagnostics"
+--     local default_handler = vim.lsp.handlers[method]
+--     vim.lsp.handlers[method] = function(err, method, result, client_id, bufnr,
+--                                         config)
+--         default_handler(err, method, result, client_id, bufnr, config)
+--         local diagnostics = vim.lsp.diagnostic.get_all()
+--         local qflist = {}
+--         for bufnr, diagnostic in pairs(diagnostics) do
+--             for _, d in ipairs(diagnostic) do
+--                 d.bufnr = bufnr
+--                 d.lnum = d.range.start.line + 1
+--                 d.col = d.range.start.character + 1
+--                 d.text = d.message
+--                 table.insert(qflist, d)
+--             end
+--         end
+--         vim.diagnostic.setqflist(qflist)
+--     end
+-- end
 

@@ -29,4 +29,4 @@ require('debugger')
 -- LSP
 require('lang')
 
-require('go').setup({build_tags="mock"})
+require('go').setup({build_tags="mock,integration_tests", test_runner="richgo", run_in_floaterm = true})
