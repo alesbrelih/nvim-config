@@ -175,20 +175,8 @@ nvim_lsp.gopls.setup{
     root_dir = nvim_lsp.util.root_pattern("go.mod")
 }
 -- Lua LSP
-local sumneko_root_path = ""
-local sumneko_binary = ""
-
-if vim.fn.has("mac") == 1 then
-    sumneko_root_path = "/Users/" .. USER .. "/.config/nvim/lua-language-server"
-    sumneko_binary = "/Users/" .. USER ..
-                         "/.config/nvim/lua-language-server/bin/lua-language-server"
-elseif vim.fn.has("unix") == 1 then
-    sumneko_root_path = "/home/" .. USER .. "/.config/nvim/lua-language-server"
-    sumneko_binary = "/home/" .. USER ..
-                         "/.config/nvim/lua-language-server/bin/Linux/lua-language-server"
-else
-    print("Unsupported system for sumneko")
-end
+local sumneko_root_path = "/Users/" .. USER .. "/Projects/lua-language-server"
+local sumneko_binary = "/Users/" .. USER .. "/Projects/lua-language-server/bin/lua-language-server"
 
 
 -- lua-dev.nvim

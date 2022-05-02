@@ -14,7 +14,7 @@ utils.map("n", "<leader>s", "<cmd>:SymbolsOutline<CR>")
 utils.map("n", "<leader>§", "<cmd>:Cheat<CR>")
 
 -- debug
-utils.map("n", "<leader>ds", "<cmd>:GoDebug nearest<CR>")
+utils.map("n", "<leader>ds", "<cmd>:GoDebug -n<CR>")
 utils.map("n", "<leader>dd", "<cmd>:GoDbgStop<CR>")
 utils.map("n", "<leader>dt", "<cmd>:GoBreakToggle<CR>")
 utils.map("n", "<leader>dc", "<cmd>:GoBreakCondition<CR>")
