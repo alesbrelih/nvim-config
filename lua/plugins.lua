@@ -1,8 +1,8 @@
  return require('packer').startup(function()
-    
+
     -- Packer can manage itself as an optional plugin
     use {'wbthomason/packer.nvim', opt = true}
-  
+
     -- Color scheme
     use 'sainnhe/gruvbox-material'
 
@@ -11,7 +11,7 @@
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
         config = function()
-            require('telescope').setup({ 
+            require('telescope').setup({
                 defaults = { file_ignore_patterns = {"mock%_.*%.go", "go/vendor"} },
                 extensions = {
     fzf = {
@@ -52,10 +52,10 @@
 
     -- Lua development
     use { 'tjdevries/nlua.nvim' }
-  
+
     -- Vim dispatch
     use { 'tpope/vim-dispatch' }
-  
+
 
     -- use { 'xabikos/vscode-javascript' }
 
@@ -64,7 +64,7 @@
     use {'theHamsta/nvim-dap-virtual-text'}
     use {'rcarriga/nvim-dap-ui'}
     use {'Pocco81/DAPInstall.nvim'}
-    
+
     --[[ use {
         "rcarriga/vim-ultest",
         config = "require('config.ultest').post()",
@@ -86,10 +86,11 @@
     use { 'onsails/lspkind-nvim' }
     use { 'yamatsum/nvim-cursorline' }
 
-    -- use {
-    --     "folke/which-key.nvim",
-    --      config = function() require("which-key").setup {} end
-    -- }
+    use {
+        "folke/which-key.nvim",
+         config = function() require("which-key").setup {} end
+    }
+
     use {
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
@@ -98,10 +99,14 @@
 
     use { 'p00f/nvim-ts-rainbow' }
 
-    use { 'vim-airline/vim-airline' }
+    -- use { 'vim-airline/vim-airline' }
+    --
+    -- use { 'vim-airline/vim-airline-themes' }
 
-    use { 'vim-airline/vim-airline-themes' }
-
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
     use {
         'windwp/nvim-autopairs'
     }
@@ -120,7 +125,7 @@
     end
     }
 
-    use { 'ryanoasis/vim-devicons' } 
+    use { 'ryanoasis/vim-devicons' }
     use { 'hrsh7th/cmp-nvim-lsp' }
     use { 'hrsh7th/cmp-buffer' }
     use { 'hrsh7th/nvim-cmp' }
@@ -139,16 +144,20 @@
     use { 'kevinhwang91/rnvimr'}
 
     use {'tversteeg/registers.nvim'}
-    
+
     use {'preservim/nerdtree'}
 
     use {'gaborvecsei/memento.nvim'}
 
 
     use {
-    'numToStr/Comment.nvim',
-    config = function()
-        require('Comment').setup()
-    end
-}
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
+
+    use "lukas-reineke/indent-blankline.nvim"
+
+    use 'kosayoda/nvim-lightbulb'
   end)

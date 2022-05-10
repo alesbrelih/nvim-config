@@ -28,12 +28,27 @@ require('debugger')
 
 -- LSP
 require('lang')
+--
+
+-- require('barbar')
+
+require('lualine').setup {
+    options = { theme = 'gruvbox-material' }
+}
 
 require('go').setup({
     dap_debug = true,
     dap_debug_gui = true,
     dap_debug_vt = true,
     build_tags="mock,integration_tests",
+    verbose= true,
+    log_path="/tmp/go.nvim",
     test_runner="richgo",
-    run_in_floaterm = true
+    run_in_floaterm = true,
+    verbose_tests = false
 })
+--
+-- Run gofmt + goimport on save
+vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport() ]], false)
+
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
