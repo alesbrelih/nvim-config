@@ -115,6 +115,8 @@ capabilities.textDocument.codeAction = {
   local params = vim.lsp.util.make_position_params()
 
 
+-- Setup lspconfig.
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.completion.completionItem.resolveSupport = {
   properties = {
@@ -123,11 +125,9 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
     'additionalTextEdits',
   }
 }
--- Setup lspconfig.
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- LSPs
-local servers = {"tsserver", "angularls"}
+local servers = {"tsserver", "angularls", "bashls", "dockerls"}
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {capabilities = capabilities, on_attach = on_attach}
 end
@@ -145,6 +145,9 @@ nvim_lsp.gopls.setup{
     on_attach = on_attach,
     flags = {
         debounce_text_changes = 150,
+    },
+    init_options = {
+        usePlaceholders = true,
     },
     settings = {
         gopls =  {
@@ -174,6 +177,9 @@ nvim_lsp.gopls.setup{
     filetypes = { "go", "gomod" },
     root_dir = nvim_lsp.util.root_pattern("go.mod")
 }
+
+-- nvim_lsp.golangci_lint_ls.setup{}
+
 -- Lua LSP
 local sumneko_root_path = "/Users/" .. USER .. "/Projects/lua-language-server"
 local sumneko_binary = "/Users/" .. USER .. "/Projects/lua-language-server/bin/lua-language-server"

@@ -8,7 +8,9 @@ utils.map('n', '<C-k>', '<C-W>k')
 utils.map('n', '<C-l>', '<C-W>l')
 -- utils.map('n', '<C-x>', '<C-W>w<C-W>q')
 
+utils.map("n", "<leader>c", "<cmd>lua _G._vd_toggle()<CR>")
 utils.map("n", "<leader>g", "<cmd>lua _G._lazygit_toggle()<CR>")
+utils.map("n", "<leader>8", "<cmd>lua _G._k9s_toggle()<CR>")
 -- utils.map("n", "<leader>n", "<cmd>lua _G._vifm()<CR>")
 utils.map("n", "<leader>s", "<cmd>:SymbolsOutline<CR>")
 utils.map("n", "<leader>§", "<cmd>:Cheat<CR>")
@@ -20,11 +22,13 @@ utils.map("n", "<leader>dt", "<cmd>:GoBreakToggle<CR>")
 utils.map("n", "<leader>dc", "<cmd>:GoBreakCondition<CR>")
 
 -- test
-utils.map("n", "<leader>tt", "<cmd>:GoTestFile<CR>")
-utils.map("n", "<leader>tf", "<cmd>:GoTestFunc<CR>")
+utils.map("n", "<leader>tt", "<cmd>:GoTest -f<CR>")
+utils.map("n", "<leader>tf", "<cmd>:GoTest -n<CR>")
 utils.map("n", "<leader>ta", "<cmd>:GoAddTest<CR>")
 utils.map("n", "<leader>tc", "<cmd>:GoCoverage<CR>")
 utils.map("n", "<leader>tq", "<cmd>:GoTermClose<CR>")
+utils.map("n", "<leader>tv", "<cmd>:GoAltV!<CR>")
+utils.map("n", "<leader>ts", "<cmd>:GoAlt!<CR>")
 
 -- harpoon
 utils.map("n", "<leader>cc", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>")

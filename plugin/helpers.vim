@@ -29,3 +29,10 @@ nnoremap <leader>k :m .-2<CR>==
 " when indenting keep selection
 vnoremap < <gv
 vnoremap > >gv
+
+" " reselect original text when pasting in visual mode
+" xnoremap p pgv"@=v:register.'y'<cr>
+xnoremap p pgvy
+
+" insert uuid
+imap <c-i> <c-r>=system('uuid')<cr>

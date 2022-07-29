@@ -33,7 +33,11 @@ require('lang')
 -- require('barbar')
 
 require('lualine').setup {
-    options = { theme = 'gruvbox-material' }
+    options = {
+        theme = 'gruvbox-material'
+        -- theme = 'tokyonight'
+        -- theme = "catppuccin"
+    }
 }
 
 require('go').setup({
@@ -47,8 +51,17 @@ require('go').setup({
     run_in_floaterm = true,
     verbose_tests = false
 })
+
+require('telescope').load_extension('fzf')
+require('spellsitter').setup()
+
+-- require('neoscroll').setup()
+
 --
 -- Run gofmt + goimport on save
 vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport() ]], false)
 
 vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+
+vim.g.copilot_no_tab_map = true
+vim.api.nvim_set_keymap("i", "<C-m>", 'copilot#Accept("<CR>")', { silent = true, expr = true })

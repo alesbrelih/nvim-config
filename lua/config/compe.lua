@@ -25,15 +25,15 @@ cmp.setup({
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
-            elseif vim.fn["vsnip#available"]() == 1 then
+            elseif vim.fn["vsnip#available"](1) == 1 then
                 feedkey("<Plug>(vsnip-expand-or-jump)", "")
             elseif has_words_before() then
                 cmp.complete()
             else
-                fallback()
+                fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
             end
-        end, { "i", "s" }),
-        ["<S-Tab>"] = cmp.mapping(function()
+            end, { "i", "s" }),
+            ["<S-Tab>"] = cmp.mapping(function()
             if cmp.visible() then
                 cmp.select_prev_item()
             elseif vim.fn["vsnip#jumpable"](-1) == 1 then
@@ -52,7 +52,7 @@ cmp.setup({
         { name = 'nvim_lua'},
         { name = 'vsnip' },
         { name = 'path' },
-        { name = 'buffer' },
+        { name = 'buffer' }
     }),
     experimental = {
         native_menu = false,
@@ -71,6 +71,23 @@ cmp.setup({
         },
     },
 })
+  -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline('/', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = 'buffer' }
+    }
+  })
+
+  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      { name = 'cmdline' }
+    })
+  })
 
 --[[ require("nvim-autopairs.completion.cmp").setup({
   map_cr = true, --  map <CR> on insert mode

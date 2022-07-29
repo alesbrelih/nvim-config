@@ -6,3 +6,4 @@ let g:db_ui_save_location = '~/.config/db_ui'
 let g:db_ui_use_nerd_fonts = 1
 let g:ftplugin_sql_omni_key = '<C-j>'
 
+

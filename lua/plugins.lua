@@ -25,7 +25,6 @@
             })
         end
     }
-    require('telescope').load_extension('fzf')
 
 
     -- Harpoon
@@ -36,6 +35,7 @@
 
     use { 'nvim-telescope/telescope-media-files.nvim' }
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+
 
 
     -- LSP and completion
@@ -133,6 +133,8 @@
     use { 'hrsh7th/vim-vsnip' }
     use { 'hrsh7th/cmp-vsnip' }
     use { 'hrsh7th/cmp-nvim-lua' }
+    use { 'hrsh7th/cmp-cmdline' }
+    use { "rafamadriz/friendly-snippets" }
 
     use { 'tpope/vim-surround' }
 
@@ -160,4 +162,21 @@
     use "lukas-reineke/indent-blankline.nvim"
 
     use 'kosayoda/nvim-lightbulb'
+
+    use 'tpope/vim-obsession'
+    use {
+    -- Optional but recommended
+    -- 'nvim-treesitter/nvim-treesitter',
+    'lewis6991/spellsitter.nvim'
+    }
+    use { 'github/copilot.vim' }
+
+    -- use {
+    --     'romgrk/barbar.nvim',
+    --     requires = {'kyazdani42/nvim-web-devicons'}
+    -- }
+
+    -- use 'karb94/neoscroll.nvim'
+    use {'kevinhwang91/nvim-bqf', ft = 'qf'}
+    -- use 'folke/tokyonight.nvim'
   end)
