@@ -58,12 +58,17 @@ local lsp = require('lsp-zero')
 local nvim_lsp = require('lspconfig')
 
 lsp.preset('recommended')
-
 lsp.set_preferences({set_lsp_keymaps = false})
-
 lsp.on_attach(on_attach)
 
-lsp.setup()
+lsp.setup_nvim_cmp({
+    sources = {
+        {name = 'path', keyword_length = 1},
+        {name = 'nvim_lsp', keyword_length = 1},
+        {name = 'buffer', keyword_length = 2},
+        {name = 'luasnip', keyword_length = 2}
+    }
+})
 
 lsp.configure('gopls', {
     flags = {debounce_text_changes = 150},
@@ -96,3 +101,5 @@ lsp.configure('gopls', {
     filetypes = {"go", "gomod"},
     root_dir = nvim_lsp.util.root_pattern("go.mod")
 })
+
+lsp.setup()
