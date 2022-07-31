@@ -28,6 +28,8 @@ local on_attach = function(client, bufnr)
                    '<cmd>lua vim.diagnostic.set_loclist()<CR>', opts)
     buf_set_keymap('n', '<leader>lca', '<cmd>lua vim.lsp.buf.code_action()<CR>',
                    opts)
+    buf_set_keymap('v', '<leader>lca', '<cmd>lua vim.lsp.buf.code_action()<CR>',
+                   opts)
 
     -- Set some keybinds conditional on server capabilities
 

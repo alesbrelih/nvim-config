@@ -86,6 +86,12 @@ require('packer').startup(function(use)
     }
     use {'ray-x/lsp_signature.nvim'}
     use {'onsails/lspkind-nvim'}
+    use {
+        "ThePrimeagen/refactoring.nvim",
+        requires = {
+            {"nvim-lua/plenary.nvim"}, {"nvim-treesitter/nvim-treesitter"}
+        }
+    }
     use {"folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons"}
 
     -- handling of non LSP linters/formatters

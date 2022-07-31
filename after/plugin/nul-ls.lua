@@ -19,7 +19,12 @@ local sources = {
     null_ls.builtins.diagnostics.misspell,
     null_ls.builtins.diagnostics.shellcheck,
     null_ls.builtins.diagnostics.yamllint,
-    null_ls.builtins.diagnostics.golangci_lint
+    null_ls.builtins.diagnostics.golangci_lint,
+    null_ls.builtins.code_actions.eslint,
+    null_ls.builtins.code_actions.shellcheck,
+    null_ls.builtins.formatting.goimports_reviser.with({
+        extra_args = {"-local", "ericsson"}
+    }), null_ls.builtins.formatting.golines
 }
 
 require('null-ls').setup({
