@@ -43,8 +43,8 @@ require('null-ls').setup({
                 callback = function()
                     vim.lsp.buf.format({
                         bufnr = bufnr,
-                        filter = function(client)
-                            return client.name == "null-ls"
+                        filter = function(c)
+                            return c.name == "null-ls"
                         end
                     })
                 end
