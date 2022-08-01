@@ -6,8 +6,13 @@ local sources = {
     null_ls.builtins.formatting.jq, null_ls.builtins.formatting.lua_format,
     null_ls.builtins.formatting.markdownlint,
     null_ls.builtins.formatting.nginx_beautifier,
-    null_ls.builtins.formatting.pg_format, null_ls.builtins.formatting.prettier,
-    null_ls.builtins.formatting.stylelint,
+    null_ls.builtins.formatting.pg_format,
+    null_ls.builtins.formatting.prettier.with({
+        filetypes = {
+            "javascript", "javascriptreact", "typescript", "typescriptreact",
+            "vue", "css", "scss", "less", "html"
+        }
+    }), null_ls.builtins.formatting.stylelint,
     null_ls.builtins.formatting.trim_newlines,
     null_ls.builtins.formatting.trim_whitespace,
     null_ls.builtins.diagnostics.ansiblelint,
