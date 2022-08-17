@@ -16,7 +16,6 @@ local sources = {
     null_ls.builtins.formatting.trim_newlines,
     null_ls.builtins.formatting.trim_whitespace,
     null_ls.builtins.diagnostics.ansiblelint,
-    null_ls.builtins.diagnostics.checkmake,
     null_ls.builtins.diagnostics.codespell, null_ls.builtins.diagnostics.eslint,
     null_ls.builtins.diagnostics.hadolint,
     null_ls.builtins.diagnostics.luacheck,
@@ -28,8 +27,8 @@ local sources = {
     null_ls.builtins.code_actions.eslint,
     null_ls.builtins.code_actions.shellcheck,
     null_ls.builtins.formatting.goimports_reviser.with({
-        extra_args = {"-local", "ericsson"}
-    }), null_ls.builtins.formatting.golines
+        extra_args = {"-local", "ericsson", "-rm-unused", "-set-alias"}
+    })
 }
 
 require('null-ls').setup({
