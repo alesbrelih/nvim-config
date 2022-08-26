@@ -1,6 +1,7 @@
 local utils = require('utils')
 
 vim.g.mapleader = ' '
+vim.g.ftplugin_sql_omni_key = '<C-j>'
 
 utils.map('n', '<C-l>', '<cmd> :noh<CR>') -- Clear highlights
 utils.map('i', '<C-c>', '<Esc>')
