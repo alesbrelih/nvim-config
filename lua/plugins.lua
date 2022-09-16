@@ -17,10 +17,8 @@ require('packer').startup(function(use)
     use "lukas-reineke/indent-blankline.nvim"
     use {'yamatsum/nvim-cursorline'}
     use {'sainnhe/gruvbox-material'}
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = {'kyazdani42/nvim-web-devicons', opt = true}
-    }
+    use {'kyazdani42/nvim-web-devicons'}
+    use {'nvim-lualine/lualine.nvim'}
 
     -- helpers
     use {'windwp/nvim-autopairs'}
@@ -31,7 +29,7 @@ require('packer').startup(function(use)
     -- fuzzy finder
     use {
         'nvim-telescope/telescope.nvim',
-        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+        requires = {{'nvim-lua/plenary.nvim'}}
     }
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
 
@@ -40,10 +38,7 @@ require('packer').startup(function(use)
     use {'nvim-treesitter/nvim-treesitter-textobjects'}
 
     -- navigation
-    use {
-        'ThePrimeagen/harpoon',
-        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
-    }
+    use {'ThePrimeagen/harpoon', requires = {{'nvim-lua/plenary.nvim'}}}
     use {'phaazon/hop.nvim', branch = 'v1'}
 
     -- file explorer
@@ -84,20 +79,19 @@ require('packer').startup(function(use)
             {'L3MON4D3/LuaSnip'}, {'rafamadriz/friendly-snippets'}
         }
     }
+
     use {'ray-x/lsp_signature.nvim'}
     use {'onsails/lspkind-nvim'}
-    use {
-        "ThePrimeagen/refactoring.nvim",
-        requires = {
-            {"nvim-lua/plenary.nvim"}, {"nvim-treesitter/nvim-treesitter"}
-        }
-    }
-    use {"folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons"}
+    use {"folke/trouble.nvim"}
 
     -- handling of non LSP linters/formatters
     use {'jose-elias-alvarez/null-ls.nvim'}
 
     -- file sybols
     use {'simrat39/symbols-outline.nvim'}
+
+    -- If you are using Packer
     if packer_bootstrap then require('packer').sync() end
 end)
+
+require("indent_blankline").setup {show_end_of_line = true}

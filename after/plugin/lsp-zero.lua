@@ -1,3 +1,4 @@
+local lspkind = require('lspkind')
 Handlers = require('lsp-handlers')
 
 local on_attach = function(client, bufnr)
@@ -64,6 +65,7 @@ lsp.set_preferences({set_lsp_keymaps = false})
 lsp.on_attach(on_attach)
 
 lsp.setup_nvim_cmp({
+    formatting = {format = lspkind.cmp_format()},
     sources = {
         {name = 'path', keyword_length = 1},
         {name = 'nvim_lsp', keyword_length = 1},

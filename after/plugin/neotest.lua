@@ -1,12 +1,13 @@
-require('neotest').setup({diagnostcs = {enabled = true}})
-
 require('neotest').setup({
     adapters = {
         require("neotest-go")({
+            experimental = {test_table = true},
             args = {
                 "-tags=mock,integration_tests", "-mod=vendor", "-failfast",
-                "-cover", "-race"
+                "-race"
             }
         })
-    }
+    },
+    -- laggy on large repositories
+    discovery = {enabled = false}
 })

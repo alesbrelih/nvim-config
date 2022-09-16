@@ -1,5 +1,9 @@
 require('telescope').setup({
-    defaults = {file_ignore_patterns = {"mock%_.*%.go", "go/vendor"}},
+    defaults = {
+        layout_strategy = 'horizontal',
+        layout_config = {horizontal = {width = 0.85}},
+        file_ignore_patterns = {"mock%_.*%.go", "go/vendor"}
+    },
     extensions = {
         fzf = {
             fuzzy = true, -- false will only do exact matching

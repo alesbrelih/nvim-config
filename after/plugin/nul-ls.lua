@@ -1,9 +1,10 @@
--- local utils = require('utils')
 local null_ls = require('null-ls')
 
 local sources = {
-    null_ls.builtins.formatting.eslint, null_ls.builtins.formatting.gofmt,
-    null_ls.builtins.formatting.jq, null_ls.builtins.formatting.lua_format,
+    null_ls.builtins.formatting.eslint.with({
+        arg = {"--stdin", "--stdin-filename", "$FILENAME"}
+    }), null_ls.builtins.formatting.gofmt, null_ls.builtins.formatting.jq,
+    null_ls.builtins.formatting.lua_format,
     null_ls.builtins.formatting.markdownlint,
     null_ls.builtins.formatting.nginx_beautifier,
     null_ls.builtins.formatting.pg_format,
@@ -16,16 +17,19 @@ local sources = {
     null_ls.builtins.formatting.trim_newlines,
     null_ls.builtins.formatting.trim_whitespace,
     null_ls.builtins.diagnostics.ansiblelint,
-    null_ls.builtins.diagnostics.codespell, null_ls.builtins.diagnostics.eslint,
-    null_ls.builtins.diagnostics.hadolint,
+    null_ls.builtins.diagnostics.codespell,
+    null_ls.builtins.diagnostics.eslint.with({
+        arg = {"--stdin", "--stdin-filename", "$FILENAME"}
+    }), null_ls.builtins.diagnostics.hadolint,
     null_ls.builtins.diagnostics.luacheck,
     null_ls.builtins.diagnostics.markdownlint,
     null_ls.builtins.diagnostics.misspell,
     null_ls.builtins.diagnostics.shellcheck,
     null_ls.builtins.diagnostics.yamllint,
     null_ls.builtins.diagnostics.golangci_lint,
-    null_ls.builtins.code_actions.eslint,
-    null_ls.builtins.code_actions.shellcheck,
+    null_ls.builtins.code_actions.eslint.with({
+        arg = {"--stdin", "--stdin-filename", "$FILENAME"}
+    }), null_ls.builtins.code_actions.shellcheck,
     null_ls.builtins.formatting.goimports_reviser.with({
         extra_args = {"-local", "ericsson", "-rm-unused", "-set-alias"}
     })
