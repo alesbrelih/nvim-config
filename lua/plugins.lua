@@ -26,11 +26,11 @@ require('packer').startup(function(use)
     use {'akinsho/toggleterm.nvim'}
     use {'f-person/git-blame.nvim'}
 
+    use("nvim-lua/plenary.nvim")
+    use("nvim-lua/popup.nvim")
+
     -- fuzzy finder
-    use {
-        'nvim-telescope/telescope.nvim',
-        requires = {{'nvim-lua/plenary.nvim'}}
-    }
+    use {'nvim-telescope/telescope.nvim'}
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
 
     -- treesitter support
@@ -38,7 +38,7 @@ require('packer').startup(function(use)
     use {'nvim-treesitter/nvim-treesitter-textobjects'}
 
     -- navigation
-    use {'ThePrimeagen/harpoon', requires = {{'nvim-lua/plenary.nvim'}}}
+    use {'ThePrimeagen/harpoon'}
     use {'phaazon/hop.nvim', branch = 'v1'}
 
     -- file explorer
@@ -62,7 +62,6 @@ require('packer').startup(function(use)
     use {
         "nvim-neotest/neotest",
         requires = {
-            "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter",
             "antoinemadec/FixCursorHold.nvim", 'nvim-neotest/neotest-go'
         }
     }

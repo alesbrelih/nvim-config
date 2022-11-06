@@ -86,7 +86,7 @@ lsp.configure('gopls', {
                 test = true,
                 tidy = true
             },
-            diagnosticsDelay = "500ms",
+            diagnosticsDelay = "100ms",
             buildFlags = {"-tags=mock,integration_tests"},
             usePlaceholders = true,
             completeUnimported = true,
