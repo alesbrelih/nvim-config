@@ -55,6 +55,11 @@ local on_attach = function(client, bufnr)
         augroup END
         ]], false)
     end
+
+    if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
+        vim.diagnostic.disable(bufnr)
+        vim.defer_fn(function() vim.diagnostic.reset(nil, bufnr) end, 1000)
+    end
 end
 
 local lsp = require('lsp-zero')
@@ -105,5 +110,8 @@ lsp.configure('gopls', {
     filetypes = {"go", "gomod"},
     root_dir = nvim_lsp.util.root_pattern("go.mod")
 })
+
+local cfg = require("yaml-companion").setup()
+lsp.configure("yamlls", cfg)
 
 lsp.setup()

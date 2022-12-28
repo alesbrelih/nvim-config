@@ -95,3 +95,6 @@ utils.map("n", "<leader>tf",
 utils.map("n", "<leader>ts", "<cmd> lua require('neotest').summary.open()<CR>")
 utils.map("n", "<leader>td",
           "<cmd>lua require('neotest').output.open({ enter = true })<CR>")
+
+-- yaml companion
+utils.map("n", "<leader>y", "<cmd>Telescope yaml_schema<cr>")

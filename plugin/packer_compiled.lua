@@ -291,6 +291,11 @@ _G.packer_plugins = {
     path = "/Users/ales/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
   },
+  ["vim-helm"] = {
+    loaded = true,
+    path = "/Users/ales/.local/share/nvim/site/pack/packer/start/vim-helm",
+    url = "https://github.com/towolf/vim-helm"
+  },
   ["vim-obsession"] = {
     loaded = true,
     path = "/Users/ales/.local/share/nvim/site/pack/packer/start/vim-obsession",
@@ -300,10 +305,20 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ales/.local/share/nvim/site/pack/packer/start/which-key.nvim",
     url = "https://github.com/folke/which-key.nvim"
+  },
+  ["yaml-companion.nvim"] = {
+    config = { "\27LJ\2\nP\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\16yaml_schema\19load_extension\14telescope\frequire\0" },
+    loaded = true,
+    path = "/Users/ales/.local/share/nvim/site/pack/packer/start/yaml-companion.nvim",
+    url = "https://github.com/someone-stole-my-name/yaml-companion.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: yaml-companion.nvim
+time([[Config for yaml-companion.nvim]], true)
+try_loadstring("\27LJ\2\nP\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\16yaml_schema\19load_extension\14telescope\frequire\0", "config", "yaml-companion.nvim")
+time([[Config for yaml-companion.nvim]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads

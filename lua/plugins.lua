@@ -89,6 +89,19 @@ require('packer').startup(function(use)
     -- file sybols
     use {'simrat39/symbols-outline.nvim'}
 
+    use {'towolf/vim-helm'}
+
+    use {
+        "someone-stole-my-name/yaml-companion.nvim",
+        requires = {
+            {"neovim/nvim-lspconfig"}, {"nvim-lua/plenary.nvim"},
+            {"nvim-telescope/telescope.nvim"}
+        },
+        config = function()
+            require("telescope").load_extension("yaml_schema")
+        end
+    }
+
     -- If you are using Packer
     if packer_bootstrap then require('packer').sync() end
 end)
